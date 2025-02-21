@@ -20,7 +20,32 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-
+  headerBoardName : document.getElementById('header-board-name'),
+  editTaskModal : document.getElementsByClassName('edit-task-modal-window')[0],
+  modalWindow : document.getElementById('new-task-modal-window'),
+  filterDiv : document.getElementById('filterDiv'),
+  hideSideBarBtn : document.getElementById('hide-side-bar-btn'),
+  showSideBarBtn : document.getElementById('show-side-bar-btn'),
+  themeSwitch : document.getElementById('switch'),
+  createNewTaskBtn : document.getElementById('add-new-task-btn'),
+  boardsContainer : document.getElementById("boards-nav-links-div"),
+  cancelEditBtn : document.getElementById('cancel-edit-btn'),
+  cancelAddTaskBtn : document.getElementById('cancel-add-task-btn'),
+  titleInput : document.getElementById('title-input'),
+  descInput : document.getElementById('desc-input'),
+  selectStatus : document.getElementById('select-status'),
+  sideBarDiv : document.getElementById('side-bar-div'),
+  editTaskTitleInput : document.getElementById('edit-task-title-input'),
+  editTaskDescInput : document.getElementById('edit-task-desc-input'),
+  editSelectStatus : document.getElementById('edit-select-status'),
+  saveChangeBtn : document.getElementById('save-task-changes-btn'),
+  cancelChangeBtn : document.getElementById('cancel-edit-btn'),
+  deleteTaskBtn : document.getElementById('delete-task-btn'),
+  columnDivs: [
+    document.querySelector("[data-status='todo']"),
+    document.querySelector("[data-status='doing']"),
+    document.querySelector("[data-status='done']")
+  ]
 }
 
 let activeBoard = ""
