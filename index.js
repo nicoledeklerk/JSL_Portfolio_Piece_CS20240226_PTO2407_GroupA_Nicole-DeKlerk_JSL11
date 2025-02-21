@@ -255,18 +255,20 @@ function openEditTaskModal(task) {
   elements.editSelectStatus.value = task.status;
   
   // Call saveTaskChanges upon click of Save Changes button
-  elements.saveChangeBtn.addEventListener('click',() => { saveTaskChanges(task.id)});
-  
-    // Delete task using a helper function and close the task modal
-  elements.deleteTaskBtn.addEventListener('click',() => { 
+  const newSaveChangeBtn = elements.saveChangeBtn.cloneNode(true);
+  elements.saveChangeBtn.replaceWith(newSaveChangeBtn);
+  newSaveChangeBtn.addEventListener("click", () => saveTaskChanges(task.id));
+
+  const newDeleteTaskBtn = elements.deleteTaskBtn.cloneNode(true);
+  elements.deleteTaskBtn.replaceWith(newDeleteTaskBtn);
+  newDeleteTaskBtn.addEventListener("click", () => { 
     const confirmDelete = confirm(`Are you sure you would like to delete the task "${task.title}"?`);
     if (confirmDelete) { 
-      deleteTask(task.id) 
-      refreshTasksUI() 
-      elements.cancelChangeBtn.click(); 
-      }
-    })
-  
+      deleteTask(task.id);
+      refreshTasksUI();
+      elements.cancelChangeBtn.click();
+    }
+  });
 }
 
 function saveTaskChanges(taskId) { //saves changes when user edits a task in the UI //
